@@ -10,9 +10,11 @@ include_directories(inc)
 
 add_library(core_logic STATIC 
     src/ring_buffer.c
+    src/packet_parser.c
 )
 add_library(tests STATIC 
     tests/test_ring_buffer.c
+    tests/test_packet_parser.c
 )
 
 add_executable(embedded_patterns tests/main.c)
