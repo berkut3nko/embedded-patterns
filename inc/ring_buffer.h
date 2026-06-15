@@ -5,15 +5,15 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define RING_BUFFER_SIZE (255U)
+#define RING_BUFFER_SIZE (256U)
 
 /**
  * @brief Ring buffer context structure.
  */
-typedef struct __attribute__((packed)) {
+typedef struct {
     uint8_t buffer[RING_BUFFER_SIZE];
-    uint8_t head;
-    uint8_t tail;
+    volatile uint32_t head;
+    volatile uint32_t tail;
 } RingBuffer_t;
 
 /**
